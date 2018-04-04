@@ -39,7 +39,7 @@ $people = array(
 					<td>{{ person.last_name }}</td>
 					<td>{{ person.email }}</td>
 					<td>
-						<button class="btn btn-primary" ng-click="doAlert(person.first_name, person.last_name)" name="submit">Alert!</button>
+						<button class="btn btn-primary" ng-click="doAlert(person.first_name, person.last_name, person.email)" name="submit">Alert!</button>
 					</td>
 				</tr>
 			</tbody>
@@ -62,7 +62,7 @@ $people = array(
 						<td><?=$person['last_name'];?></td>
 						<td><?=$person['email'];?></td>
 						<td>
-							<button class="btn btn-primary" onclick="alert('<?=$person['first_name']. ' ' .$person['last_name'];?>')" name="submit">Alert!</button>
+							<button class="btn btn-primary" onclick="alert('<?=$person['first_name']. ' ' .$person['last_name']. ' ' .$person['email'];?>')" name="submit">Alert!</button>
 						</td>
 					</tr>
 				<?php endforeach; ?>
@@ -74,8 +74,8 @@ $people = array(
 		var app = angular.module('AApp', []);
 		app.controller('ACtrl', function($scope) {
 			$scope.people=<?php echo json_encode($people);?>;
-			$scope.doAlert = function(first, second) {
-				alert(first + ' ' + second);
+			$scope.doAlert = function(first, second, third) {
+				alert(first + ' ' + second + ' ' + third);
 			};
 		});
 	</script>
